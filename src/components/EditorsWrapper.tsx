@@ -44,7 +44,7 @@ const EditorsWrapper = (props: EditorsWrapperProps) => {
                     onClick={() => {
                         setOutputCollapsed((prev) => !prev);
                     }}
-                    className="absolute z-20 bg-gray-50 dark:bg-gray-900 rounded-e-2.5 flex items-center border border-gray-100  dark:border-gray-900 border-l-0  justify-center w-3 h-3 md:top-1/2 md:-translate-y-1/2 md:left-0 top:0 left-1/2 rotate-90 md:rotate-0">
+                    className="absolute z-20 bg-gray-50 dark:bg-gray-900 rounded-e-2.5 flex items-center border border-gray-100  dark:border-gray-900 border-l-0   justify-center w-3 h-3 md:top-1/2 -translate-x-1/2 md:translate-x-0 md:-translate-y-1/2 md:left-0 top:0 left-1/2 rotate-90 md:rotate-0">
                     <LuChevronRight
                         className={clsx(
                             "text-gray-500 text-1.5",
