@@ -16,7 +16,6 @@ const Menubar = (props: MenubarProps) => {
                     <li>
                         <button
                             title={label}
-                            href="#"
                             className={clsx(
                                 "h-3 w-3 flex items-center justify-center transition-all rounded-0.5 primary-focus",
                                 id === activeMenuId

@@ -19,29 +19,34 @@ const EditorsWrapper: React.FC<EditorsWrapperProps> = () => {
     return (
         <main
             className={clsx(
-                "grow h-full grid gap-0.5 transition-all",
-                outputCollapsed
-                    ? "grid-cols-1 grid-rows-[1fr_6rem] md:grid-cols-[1fr_6rem] md:grid-rows-[1fr]"
-                    : "grid-cols-1 grid-rows-[1fr_50%] md:grid-cols-[1fr_50%]  md:grid-rows-[1fr]"
+                "flex flex-col md:flex-row grow w-20 gap-0.5 h-full"
             )}>
-            <div className="flex flex-col">
+            <div
+                className={clsx(
+                    "md:h-full transition-all w-full",
+                    outputCollapsed ? "md:w-full h-full" : "md:w-1/2 h-1/2"
+                )}>
                 <CodeMirror
                     value={code}
                     height="100%"
                     theme={oneDark}
                     extensions={[javascript()]}
                     onChange={handleCodeChange}
-                    className="grow rounded-0.5 overflow-hidden"
+                    className="h-full rounded-0.5 w-full overflow-hidden"
                 />
             </div>
-            <div className="flex flex-col">
+            <div
+                className={clsx(
+                    "md:h-full transition-all w-full",
+                    outputCollapsed ? "md:w-6 h-6" : "md:w-1/2 h-1/2"
+                )}>
                 <CodeMirror
                     // value={code}
                     height="100%"
                     theme={oneDark}
                     extensions={[javascript()]}
                     onChange={handleCodeChange}
-                    className="grow rounded-0.5 overflow-hidden"
+                    className="h-full rounded-0.5 w-full overflow-hidden"
                 />
             </div>
         </main>

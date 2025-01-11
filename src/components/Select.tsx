@@ -88,7 +88,7 @@ const Select = (props: SelectProps) => {
         <div
             ref={selectRef}
             className={clsx(
-                "relative border border-gray-50 bg-white dark:border-gray-850 dark:bg-gray-800 shadow h-2.5 rounded-full primary-focus max-w-max",
+                "relative border border-gray-100 bg-white dark:border-gray-850 dark:bg-gray-800 h-2.5 rounded-full primary-focus max-w-max",
                 className
             )}
             tabIndex={0}

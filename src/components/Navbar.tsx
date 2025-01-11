@@ -22,8 +22,7 @@ const Navbar = (props: NavbarProps) => {
             <button
                 onClick={toggleSidebar}
                 className={clsx(
-                    "mr-0.5 h-2.5 w-3 flex transition-all items-center justify-center rounded-0.5",
-                    sidebarCollapsed ? "absolute" : "relative"
+                    "mr-0.5 h-2.5 w-3 z-10 absolute flex transition-all items-center justify-center rounded-0.5"
                 )}>
                 {sidebarCollapsed ? (
                     <CgMenu
@@ -41,12 +40,20 @@ const Navbar = (props: NavbarProps) => {
             </button>
             <div
                 className={clsx(
-                    "grow grid gap-x-0.5 transition-all",
-                    outputCollapsed
-                        ? "md:grid-cols-[1fr_6rem] grid-cols-[1fr]"
-                        : "md:grid-cols-[1fr_50%] grid-cols-[1fr]"
+                    "transition-all",
+                    sidebarCollapsed
+                        ? "mr-0 h-0 w-0"
+                        : "mr-0.5 h-2.5 w-3 shrink-0"
+                )}></div>
+            <div
+                className={clsx(
+                    "flex grow gap-0.5 h-full transition-all w-full duration-1000"
                 )}>
-                <div className="w-full gap-0.5 flex justify-end items-center">
+                <div
+                    className={clsx(
+                        "md:h-full w-full transition-all flex justify-end gap-0.5",
+                        outputCollapsed ? "md:w-full" : "md:w-1/2"
+                    )}>
                     <Button
                         colorScheme="green"
                         onClick={() => {
@@ -62,7 +69,11 @@ const Navbar = (props: NavbarProps) => {
                         Stop
                     </Button>
                 </div>
-                <div className="w-full"></div>
+                <div
+                    className={clsx(
+                        "md:h-full hidden md:block transition-all",
+                        outputCollapsed ? "md:w-6" : "md:w-1/2"
+                    )}></div>
             </div>
         </nav>
     );

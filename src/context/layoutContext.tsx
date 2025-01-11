@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
-// Define the context value type
 interface LayoutContextValue {
     outputCollapsed: boolean;
     setOutputCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
@@ -8,10 +7,8 @@ interface LayoutContextValue {
     setSidebarCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-// Create the context
 const LayoutContext = createContext<LayoutContextValue | undefined>(undefined);
 
-// Provide the context
 export const LayoutProvider: React.FC<{ children: ReactNode }> = ({
     children,
 }) => {
@@ -31,7 +28,6 @@ export const LayoutProvider: React.FC<{ children: ReactNode }> = ({
     );
 };
 
-// Custom hook to access the context
 export const useLayoutContext = (): LayoutContextValue => {
     const context = useContext(LayoutContext);
     if (!context) {
