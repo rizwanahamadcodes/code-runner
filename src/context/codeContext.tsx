@@ -57,7 +57,7 @@ export const CodeProvider = ({ children }: { children: React.ReactNode }) => {
         if (ws) {
             const payload = { command: "stop" };
             ws.send(JSON.stringify(payload));
-            setOutput("");
+            // setOutput("");
         }
     };
 

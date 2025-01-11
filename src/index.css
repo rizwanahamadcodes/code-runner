@@ -25,3 +25,6 @@ p {
 .green-focus {
     @apply focus:outline-none focus:ring-4 focus:ring-green-500/50;
 }
+.styledscrollbar::-webkit-scrollbar {
+    width: 0;
+}

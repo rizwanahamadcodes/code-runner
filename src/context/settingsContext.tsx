@@ -1,7 +1,9 @@
 import programmingLanguages, {
     ProgrammingLanguage,
 } from "@/data/programmingLanguages";
+import { Theme, themes } from "@/data/themes";
 import { useToggle } from "@/hooks/useToggle";
+import { useTheme } from "next-themes";
 import React, { createContext, ReactNode, useContext, useState } from "react";
 
 interface SettingsContextType {
@@ -9,8 +11,8 @@ interface SettingsContextType {
     setCurrentProgrammingLanguage: (value: ProgrammingLanguage) => void;
     sync: boolean;
     toggleSync: () => void;
-    theme: string;
-    setTheme: (value: string) => void;
+    theme: Theme;
+    setTheme: (theme: Theme) => void;
 }
 
 const SettingsContext = createContext<SettingsContextType | undefined>(
@@ -36,9 +38,23 @@ export const SettingsProvider: React.FC<SettingsProviderProps> = ({
 }) => {
     const [currentProgrammingLanguage, setCurrentProgrammingLanguage] =
         useState(programmingLanguages[0]);
-    const [theme, setTheme] = useState("");
+    const { resolvedTheme } = useTheme();
+    const initialTheme: Theme =
+        resolvedTheme === "light" ? themes[9] : themes[12];
+    const [theme, setTheme] = useState(initialTheme);
 
-    const { isOpen: sync, toggle: toggleSync } = useToggle(true);
+    const [sync, setSync] = useState(true);
+
+    const toggleSync = () => {
+        setSync((oldSync) => {
+            if (!oldSync) {
+                const initialTheme: Theme =
+                    resolvedTheme === "light" ? themes[9] : themes[12];
+                setTheme(initialTheme);
+            }
+            return !oldSync;
+        });
+    };
 
     return (
         <SettingsContext.Provider

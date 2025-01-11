@@ -4,6 +4,7 @@ import Select from "./Select";
 import Switch from "./Switch";
 import ThemeToggler from "./ThemeToggler";
 import { useSettingsContext } from "@/context/settingsContext";
+import { themes } from "@/data/themes";
 
 type SettingsProps = React.ComponentPropsWithoutRef<"div">;
 
@@ -15,6 +16,8 @@ const Settings = (props: SettingsProps) => {
         setCurrentProgrammingLanguage,
         sync,
         toggleSync,
+        theme,
+        setTheme,
     } = useSettingsContext();
 
     return (
@@ -64,14 +67,16 @@ const Settings = (props: SettingsProps) => {
                         />
                     </SettingRow>
 
-                    <SettingRow>
+                    <SettingRow
+                        className={clsx(sync ? "opacity-50 select-none" : "")}>
                         <SettingKeyColumn>
                             <SettingHeading>Editor Theme</SettingHeading>
                         </SettingKeyColumn>
                         <Select
-                            value={currentProgrammingLanguage}
-                            onChange={setCurrentProgrammingLanguage}
-                            options={programmingLanguages}
+                            value={theme}
+                            onChange={setTheme}
+                            options={themes}
+                            disabled={sync}
                         />
                     </SettingRow>
                 </SettingsGroupBody>

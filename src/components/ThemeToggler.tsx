@@ -1,3 +1,5 @@
+import { useSettingsContext } from "@/context/settingsContext";
+import { themes } from "@/data/themes";
 import clsx from "clsx";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -15,9 +17,20 @@ const ThemeToggler = (props: ThemeTogglerProps) => {
     const [mounted, setMounted] = useState(false);
     const { resolvedTheme, setTheme } = useTheme();
     const [checked, setChecked] = useState(resolvedTheme === "dark");
+    const { sync, setTheme: setEditorTheme } = useSettingsContext();
 
     const handleCheckboxChange = () => {
-        setTheme(resolvedTheme == "dark" ? "light" : "dark");
+        if (resolvedTheme == "dark") {
+            setTheme("light");
+            if (sync) {
+                setEditorTheme(themes[9]);
+            }
+        } else {
+            setTheme("dark");
+            if (sync) {
+                setEditorTheme(themes[12]);
+            }
+        }
     };
 
     useEffect(() => {
