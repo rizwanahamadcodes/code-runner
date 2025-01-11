@@ -10,7 +10,7 @@ export type Option = {
 
 type SelectProps = {
     options: Option[];
-    value: Option | null;
+    value: Option;
     className?: string;
     onChange: (option: Option) => void;
 };
@@ -53,7 +53,7 @@ const Select = (props: SelectProps) => {
                 e.preventDefault();
                 if (isOpen) {
                     if (highlightedIndex >= 0) {
-                        handleSelect(options[highlightedIndex]);
+                        handleSelect();
                     }
                 } else {
                     setIsOpen(true);
@@ -69,12 +69,12 @@ const Select = (props: SelectProps) => {
         }
     };
 
-    const toggleOptions = () => {
+    const toggleMenu = () => {
         setIsOpen((prev) => !prev);
         setHighlightedIndex(-1);
     };
 
-    const closeOptions = (e: React.FocusEvent<HTMLDivElement, Element>) => {
+    const closeMenu = (e: React.FocusEvent<HTMLDivElement, Element>) => {
         if (
             selectRef.current &&
             !selectRef.current.contains(e.relatedTarget as Node)
@@ -92,11 +92,11 @@ const Select = (props: SelectProps) => {
                 className
             )}
             tabIndex={0}
-            onBlur={closeOptions}
+            onBlur={closeMenu}
             onKeyDown={handleKeyDown}>
             <div
                 className="text-gray-800 dark:text-gray-100 h-full flex items-center cursor-pointer min-w-10 justify-between ps-1.25 pe-0.875"
-                onClick={toggleOptions}>
+                onClick={toggleMenu}>
                 {value?.label || "Select an option"}
 
                 <IoChevronDown

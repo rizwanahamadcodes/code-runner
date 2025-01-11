@@ -1,24 +1,29 @@
 import Menubar from "@/components/Menubar";
-import { useLayoutContext } from "@/context/LayoutContext";
+import { useLayoutContext } from "@/context/layoutContext";
+import programmingLanguages from "@/data/programmingLanguages";
+import { useToggle } from "@/hooks/useToggle";
 import clsx from "clsx";
+import { useState } from "react";
 import { IoSettingsSharp } from "react-icons/io5";
 import FullScreenModal, {
     ModalBody,
     ModalContents,
-    ModalFoot,
     ModalHead,
 } from "./FullScreenModal/FullScreenModal";
-import { useToggle } from "@/hooks/useToggle";
-import ThemeToggler from "./ThemeToggler";
 import Select from "./Select";
-import programmingLanguages from "@/data/programmingLanguages";
 import Switch from "./Switch";
+import ThemeToggler from "./ThemeToggler";
 
 type AsideProps = {};
 
 const Aside = (props: AsideProps) => {
     const {} = props;
     const { sidebarCollapsed } = useLayoutContext();
+    const [currentProgramminLanguage, setCurrentProgrammingLanguage] = useState(
+        programmingLanguages[0]
+    );
+
+    const { isOpen: sync, toggle: toggleSync } = useToggle(true);
 
     const { close, isOpen, open, toggle } = useToggle(true);
 
@@ -77,7 +82,12 @@ const Aside = (props: AsideProps) => {
                                                     mode
                                                 </p>
                                             </div>
-                                            <Switch size="sm" />
+                                            <Switch
+                                                htmlFor="syncSwitch"
+                                                checked={sync}
+                                                onChange={toggleSync}
+                                                size="sm"
+                                            />
                                         </div>
                                         <div className="flex items-center justify-between">
                                             <h4>Color Mode:</h4>
@@ -86,8 +96,12 @@ const Aside = (props: AsideProps) => {
                                         <div className="flex items-start justify-between">
                                             <h4>Editor Theme:</h4>
                                             <Select
-                                                value={programmingLanguages[0]}
-                                                onChange={() => {}}
+                                                value={
+                                                    currentProgramminLanguage
+                                                }
+                                                onChange={
+                                                    setCurrentProgrammingLanguage
+                                                }
                                                 options={programmingLanguages}
                                             />
                                         </div>

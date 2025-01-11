@@ -6,10 +6,11 @@ import { IoIosMoon, IoIosSunny } from "react-icons/io";
 
 type ThemeTogglerProps = React.ComponentPropsWithoutRef<"label"> & {
     size?: "sm" | "md" | "lg";
+    disabled?: boolean;
 };
 
 const ThemeToggler = (props: ThemeTogglerProps) => {
-    const { className, size = "md", ...otherProps } = props;
+    const { disabled, className, size = "md", ...otherProps } = props;
 
     const [mounted, setMounted] = useState(false);
     const { resolvedTheme, setTheme } = useTheme();
@@ -58,6 +59,7 @@ const ThemeToggler = (props: ThemeTogglerProps) => {
                 className="peer/themeToggler absolute h-0 w-0 opacity-0"
                 checked={checked}
                 onChange={handleCheckboxChange}
+                disabled={disabled}
             />
 
             <div

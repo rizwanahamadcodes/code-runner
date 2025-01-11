@@ -68,10 +68,10 @@ export const ModalHead = ({ children, className }: ModalHeadProps) => {
     return (
         <div
             className={clsx(
-                "h-3.5 flex justify-between items-center py-0.5 pr-0.5 pl-1.25",
+                "h-4 flex justify-between items-center py-0.5 pr-0.5 pl-1.25",
                 className
             )}>
-            <div>{children}</div>
+            <div className="mt-auto">{children}</div>
             <button
                 onClick={close}
                 className="flex items-center rounded-0.5 justify-center h-2.5 w-2.5 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
