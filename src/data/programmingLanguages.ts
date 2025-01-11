@@ -1,6 +1,7 @@
-import { DiJavascript1 } from "react-icons/di";
-import { FaJava, FaPython } from "react-icons/fa";
 import { IconType } from "react-icons";
+import { DiJavascript1 } from "react-icons/di";
+import { FaJava, FaPython, FaRust } from "react-icons/fa";
+import { RiPhpFill } from "react-icons/ri";
 
 export type ProgrammingLanguage = {
     id: number;
@@ -33,10 +34,17 @@ const programmingLanguages: ProgrammingLanguage[] = [
     },
     {
         id: 4,
-        value: "csharp",
-        label: "C#",
+        value: "rust",
+        label: "Rust",
         category: "Language",
-        icon: FaPython,
+        icon: FaRust,
+    },
+    {
+        id: 5,
+        value: "php",
+        label: "Php",
+        category: "Language",
+        icon: RiPhpFill,
     },
 ];
 

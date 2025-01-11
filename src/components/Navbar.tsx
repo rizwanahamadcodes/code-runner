@@ -1,13 +1,14 @@
-import { useLayoutContext } from "@/context/LayoutContext";
+import { useLayoutContext } from "@/context/layoutContext";
 import clsx from "clsx";
+import React from "react";
 import { CgMenu } from "react-icons/cg";
 import { LuChevronLeft } from "react-icons/lu";
 import Button from "./Button";
 
-type NavbarProps = {};
+type NavbarProps = React.ComponentPropsWithoutRef<"nav">;
 
 const Navbar = (props: NavbarProps) => {
-    const {} = props;
+    const { className } = props;
     const {
         outputCollapsed,
         setOutputCollapsed,
@@ -18,7 +19,7 @@ const Navbar = (props: NavbarProps) => {
         setSidebarCollapsed((oldSidebarCollapsed) => !oldSidebarCollapsed);
     };
     return (
-        <nav className="flex shrink-0">
+        <nav className={clsx("flex shrink-0", className)}>
             <button
                 onClick={toggleSidebar}
                 className={clsx(
