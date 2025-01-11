@@ -21,7 +21,10 @@ const Navbar = (props: NavbarProps) => {
         <nav className="flex shrink-0">
             <button
                 onClick={toggleSidebar}
-                className="mr-0.5 h-3 w-3 flex transition-all items-center justify-center rounded-0.5">
+                className={clsx(
+                    "mr-0.5 h-2.5 w-3 flex transition-all items-center justify-center rounded-0.5",
+                    sidebarCollapsed ? "absolute" : "relative"
+                )}>
                 {sidebarCollapsed ? (
                     <CgMenu
                         className={clsx(
@@ -38,7 +41,7 @@ const Navbar = (props: NavbarProps) => {
             </button>
             <div
                 className={clsx(
-                    "grow grid gap-0.5 transition-all ",
+                    "grow grid gap-x-0.5 transition-all",
                     outputCollapsed
                         ? "md:grid-cols-[1fr_6rem] grid-cols-[1fr]"
                         : "md:grid-cols-[1fr_50%] grid-cols-[1fr]"
