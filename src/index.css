@@ -13,9 +13,15 @@ p {
 }
 
 .root {
-    @apply min-h-dvh flex flex-col h-dvh overflow-hidden;
+    @apply min-h-dvh flex flex-col h-dvh overflow-hidden gap-0.5 p-0.5;
 }
 
 .primary-focus {
     @apply focus:outline-none focus:ring-4 focus:ring-primary/50;
+}
+.red-focus {
+    @apply focus:outline-none focus:ring-4 focus:ring-red-500/50;
+}
+.green-focus {
+    @apply focus:outline-none focus:ring-4 focus:ring-green-500/50;
 }

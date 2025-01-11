@@ -1,12 +1,10 @@
-import Container from "@/components/Container";
-import ThemeToggler from "@/components/ThemeToggler";
-
-import Select, { Option } from "@/components/Select";
-import { useState } from "react";
+import { Option } from "@/components/Select";
 import programmingLanguages from "@/data/programmingLanguages";
-import Navbar from "./components/Navbar";
-import Aside from "./components/Aside";
-import MainWrapper from "./components/MainWrapper";
+import { useState } from "react";
+import Aside from "@/components/Aside";
+import EditorsWrapper from "@/components/EditorsWrapper";
+import MainContent from "@/components/MainContent";
+import Navbar from "@/components/Navbar";
 
 function App() {
     const [selectedId, setSelectedId] = useState<number | null>(null);
@@ -21,17 +19,11 @@ function App() {
 
     return (
         <>
-            {/* <Navbar /> */}
-            <div className="p-0.5 flex h-full space-x-0.5">
+            <Navbar />
+            <MainContent>
                 <Aside />
-                <MainWrapper />
-            </div>
-            {/* <ThemeToggler /> */}
-            {/* <Select
-                    options={options}
-                    value={selectedOption}
-                    onChange={handleChange}
-                    /> */}
+                <EditorsWrapper />
+            </MainContent>
         </>
     );
 }
