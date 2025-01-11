@@ -57,7 +57,12 @@ const Navbar = (props: NavbarProps) => {
                         "md:h-full w-full transition-all flex justify-end gap-0.5",
                         outputCollapsed ? "md:w-full" : "md:w-1/2"
                     )}>
-                    <Button colorScheme="green" onClick={runCode}>
+                    <Button
+                        colorScheme="green"
+                        onClick={() => {
+                            runCode();
+                            setOutputCollapsed(false);
+                        }}>
                         Run
                     </Button>
                     <Button colorScheme="red" onClick={stopCode}>
