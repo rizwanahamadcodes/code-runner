@@ -71,6 +71,13 @@ const Settings = (props: SettingsProps) => {
                         className={clsx(sync ? "opacity-50 select-none" : "")}>
                         <SettingKeyColumn>
                             <SettingHeading>Editor Theme</SettingHeading>
+
+                            {sync ? (
+                                <SettingDescription>
+                                    NOTE: Uncheck Sync Color mode and theme
+                                    above to use this setting
+                                </SettingDescription>
+                            ) : null}
                         </SettingKeyColumn>
                         <Select
                             value={theme}
