@@ -101,7 +101,7 @@ const Select = (props: SelectProps) => {
             onBlur={closeMenu}
             onKeyDown={handleKeyDown}>
             <div
-                className="text-gray-800 dark:text-gray-100 h-full flex items-center cursor-pointer min-w-10 justify-between ps-1.25 pe-0.875"
+                className="text-gray-800 text-nowrap dark:text-gray-100 h-full flex items-center cursor-pointer min-w-10 justify-between ps-1.25 pe-0.875"
                 onClick={toggleMenu}>
                 {value?.label || "Select an option"}
 

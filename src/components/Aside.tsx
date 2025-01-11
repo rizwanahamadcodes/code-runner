@@ -21,7 +21,7 @@ const Aside = (props: AsideProps) => {
     return (
         <div
             className={clsx(
-                "transition-all overflow-hidden",
+                "transition-all",
                 sidebarCollapsed ? "w-0" : "w-3.5",
                 className
             )}>
