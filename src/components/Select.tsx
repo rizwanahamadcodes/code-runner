@@ -12,7 +12,7 @@ type SelectProps = {
     options: Option[];
     value: Option;
     className?: string;
-    onChange: (any) => void;
+    onChange: (item: any) => void;
     disabled?: boolean;
 };
 
