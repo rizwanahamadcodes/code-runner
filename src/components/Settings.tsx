@@ -1,20 +1,21 @@
 import programmingLanguages from "@/data/programmingLanguages";
-import { useToggle } from "@/hooks/useToggle";
 import clsx from "clsx";
-import { useState } from "react";
 import Select from "./Select";
 import Switch from "./Switch";
 import ThemeToggler from "./ThemeToggler";
+import { useSettingsContext } from "@/context/settingsContext";
 
 type SettingsProps = React.ComponentPropsWithoutRef<"div">;
 
 const Settings = (props: SettingsProps) => {
     const { className } = props;
-    const [currentProgramminLanguage, setCurrentProgrammingLanguage] = useState(
-        programmingLanguages[0]
-    );
 
-    const { isOpen: sync, toggle: toggleSync } = useToggle(true);
+    const {
+        currentProgrammingLanguage,
+        setCurrentProgrammingLanguage,
+        sync,
+        toggleSync,
+    } = useSettingsContext();
 
     return (
         <div className={clsx("space-y-3", className)}>
@@ -29,7 +30,7 @@ const Settings = (props: SettingsProps) => {
                         </SettingDescription>
                     </SettingKeyColumn>
                     <Select
-                        value={currentProgramminLanguage}
+                        value={currentProgrammingLanguage}
                         onChange={setCurrentProgrammingLanguage}
                         options={programmingLanguages}
                     />
@@ -68,7 +69,7 @@ const Settings = (props: SettingsProps) => {
                             <SettingHeading>Editor Theme</SettingHeading>
                         </SettingKeyColumn>
                         <Select
-                            value={currentProgramminLanguage}
+                            value={currentProgrammingLanguage}
                             onChange={setCurrentProgrammingLanguage}
                             options={programmingLanguages}
                         />

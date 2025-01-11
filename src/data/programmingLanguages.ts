@@ -1,8 +1,15 @@
-import { Option } from "@/components/Select";
 import { DiJavascript1 } from "react-icons/di";
 import { FaJava, FaPython } from "react-icons/fa";
+import { IconType } from "react-icons";
 
-const programmingLanguages: Option[] = [
+export type ProgrammingLanguage = {
+    id: number;
+    value: string;
+    label: string;
+    category: string;
+    icon: IconType;
+};
+const programmingLanguages: ProgrammingLanguage[] = [
     {
         id: 1,
         value: "javascript",
