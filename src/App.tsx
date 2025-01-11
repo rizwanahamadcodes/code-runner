@@ -1,9 +1,12 @@
-import ThemeToggler from "./components/ThemeToggler";
+import Container from "@/components/Container";
+import ThemeToggler from "@/components/ThemeToggler";
 
 function App() {
     return (
         <div>
-            <ThemeToggler />
+            <Container>
+                <ThemeToggler />
+            </Container>
         </div>
     );
 }
