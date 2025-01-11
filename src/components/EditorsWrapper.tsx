@@ -13,8 +13,7 @@ const EditorsWrapper = (props: EditorsWrapperProps) => {
     const { className } = props;
     const { outputCollapsed, setOutputCollapsed } = useLayoutContext();
     const { code, output, setCode, setOutput } = useCodeContext();
-    const { theme, currentProgrammingLanguage, toggleSync } =
-        useSettingsContext();
+    const { theme, currentProgrammingLanguage } = useSettingsContext();
 
     return (
         <main

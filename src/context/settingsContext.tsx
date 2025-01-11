@@ -2,7 +2,6 @@ import programmingLanguages, {
     ProgrammingLanguage,
 } from "@/data/programmingLanguages";
 import { Theme, themes } from "@/data/themes";
-import { useToggle } from "@/hooks/useToggle";
 import { useTheme } from "next-themes";
 import React, { createContext, ReactNode, useContext, useState } from "react";
 
