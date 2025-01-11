@@ -1,7 +1,5 @@
-import "./App.css";
-
 function App() {
-    return <>code runner</>;
+    return <div className="bg-gray-100">code runner</div>;
 }
 
 export default App;

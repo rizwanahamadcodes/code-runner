@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply dark:bg-gray-900;
+}
+
+p {
+    @apply text-1 leading-1.625 text-gray-700 dark:text-gray-300;
+}
