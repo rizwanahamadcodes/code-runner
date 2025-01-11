@@ -1,3 +1,4 @@
+import { useCodeContext } from "@/context/codeContext";
 import { useLayoutContext } from "@/context/layoutContext";
 import clsx from "clsx";
 import React from "react";
@@ -9,6 +10,7 @@ type NavbarProps = React.ComponentPropsWithoutRef<"nav">;
 
 const Navbar = (props: NavbarProps) => {
     const { className } = props;
+    const { runCode, stopCode } = useCodeContext();
     const {
         outputCollapsed,
         setOutputCollapsed,
@@ -55,18 +57,10 @@ const Navbar = (props: NavbarProps) => {
                         "md:h-full w-full transition-all flex justify-end gap-0.5",
                         outputCollapsed ? "md:w-full" : "md:w-1/2"
                     )}>
-                    <Button
-                        colorScheme="green"
-                        onClick={() => {
-                            setOutputCollapsed(true);
-                        }}>
+                    <Button colorScheme="green" onClick={runCode}>
                         Run
                     </Button>
-                    <Button
-                        colorScheme="red"
-                        onClick={() => {
-                            setOutputCollapsed(false);
-                        }}>
+                    <Button colorScheme="red" onClick={stopCode}>
                         Stop
                     </Button>
                 </div>

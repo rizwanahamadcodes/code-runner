@@ -16,7 +16,7 @@ const Menubar = (props: MenubarProps) => {
             {programmingLanguages.map((programmingLanguage) => {
                 const { id, icon: Icon, label } = programmingLanguage;
                 return (
-                    <li>
+                    <li key={id}>
                         <button
                             onClick={() => {
                                 setCurrentProgrammingLanguage(

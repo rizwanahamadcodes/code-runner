@@ -16,7 +16,7 @@ const Aside = (props: AsideProps) => {
     const { className } = props;
     const { sidebarCollapsed } = useLayoutContext();
 
-    const { close, isOpen, open, toggle } = useToggle(true);
+    const { close, isOpen, open, toggle } = useToggle(false);
 
     return (
         <div

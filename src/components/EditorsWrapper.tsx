@@ -1,25 +1,25 @@
-import { useLayoutContext } from "@/context/LayoutContext";
+import { useCodeContext } from "@/context/codeContext";
+import { useLayoutContext } from "@/context/layoutContext";
 import { javascript } from "@codemirror/lang-javascript";
 import { oneDark } from "@codemirror/theme-one-dark";
 import CodeMirror from "@uiw/react-codemirror";
 import clsx from "clsx";
-import React, { useState } from "react";
+import React from "react";
 
-type EditorsWrapperProps = {};
+type EditorsWrapperProps = React.ComponentPropsWithoutRef<"main">;
 
-const EditorsWrapper: React.FC<EditorsWrapperProps> = () => {
-    const [code, setCode] = useState<string>(""); // State to hold input code
-    const { outputCollapsed, setOutputCollapsed } = useLayoutContext();
+const EditorsWrapper = (props: EditorsWrapperProps) => {
+    const { className } = props;
+    const { outputCollapsed } = useLayoutContext();
+    const { code, output, setCode } = useCodeContext();
 
-    // Handle changes in the CodeMirror editor
-    const handleCodeChange = (value: string) => {
-        setCode(value);
-    };
-
+    console.log(code);
+    console.log(output);
     return (
         <main
             className={clsx(
-                "flex flex-col md:flex-row grow w-20 gap-0.5 h-full"
+                "flex flex-col md:flex-row grow w-20 gap-0.5 h-full",
+                className
             )}>
             <div
                 className={clsx(
@@ -31,7 +31,7 @@ const EditorsWrapper: React.FC<EditorsWrapperProps> = () => {
                     height="100%"
                     theme={oneDark}
                     extensions={[javascript()]}
-                    onChange={handleCodeChange}
+                    onChange={setCode}
                     className="h-full rounded-0.5 w-full overflow-hidden"
                 />
             </div>
@@ -41,11 +41,11 @@ const EditorsWrapper: React.FC<EditorsWrapperProps> = () => {
                     outputCollapsed ? "md:w-6 h-6" : "md:w-1/2 h-1/2"
                 )}>
                 <CodeMirror
-                    // value={code}
+                    value={output}
                     height="100%"
                     theme={oneDark}
                     extensions={[javascript()]}
-                    onChange={handleCodeChange}
+                    onChange={setCode}
                     className="h-full rounded-0.5 w-full overflow-hidden"
                 />
             </div>
