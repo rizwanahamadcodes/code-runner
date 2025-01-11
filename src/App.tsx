@@ -3,7 +3,7 @@ import ThemeToggler from "@/components/ThemeToggler";
 
 import Select, { Option } from "@/components/Select";
 import { useState } from "react";
-import options from "@/data/programmingLanguages";
+import programmingLanguages from "@/data/programmingLanguages";
 import Navbar from "./components/Navbar";
 import Aside from "./components/Aside";
 import MainWrapper from "./components/MainWrapper";
@@ -16,12 +16,13 @@ function App() {
     };
 
     const selectedOption: Option =
-        options.find((option) => option.id === selectedId) ?? options[0];
+        programmingLanguages.find((option) => option.id === selectedId) ??
+        programmingLanguages[0];
 
     return (
         <>
-            <Navbar />
-            <div className="flex">
+            {/* <Navbar /> */}
+            <div className="p-0.5 flex h-full space-x-0.5">
                 <Aside />
                 <MainWrapper />
             </div>

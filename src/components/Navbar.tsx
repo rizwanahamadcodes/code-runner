@@ -13,7 +13,7 @@ const Navbar = (props: NavbarProps) => {
                 fluid
                 className="flex justify-between items-center h-full">
                 <BrandLogo />
-                <ThemeToggler />
+                <ThemeToggler size="sm" />
             </Container>
         </nav>
     );

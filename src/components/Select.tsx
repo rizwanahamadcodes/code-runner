@@ -11,11 +11,12 @@ export type Option = {
 type SelectProps = {
     options: Option[];
     value: Option | null;
+    className?: string;
     onChange: (option: Option) => void;
 };
 
 const Select = (props: SelectProps) => {
-    const { options, value, onChange } = props;
+    const { options, className, value, onChange } = props;
     const [isOpen, setIsOpen] = useState(false);
     const [highlightedIndex, setHighlightedIndex] = useState(
         options.findIndex((option) => option.value === value?.value)
@@ -86,7 +87,10 @@ const Select = (props: SelectProps) => {
     return (
         <div
             ref={selectRef}
-            className="relative border border-gray-50 bg-white dark:border-gray-850 dark:bg-gray-800 shadow h-2.5 rounded-full primary-focus max-w-max"
+            className={clsx(
+                "relative border border-gray-50 bg-white dark:border-gray-850 dark:bg-gray-800 shadow h-2.5 rounded-full primary-focus max-w-max",
+                className
+            )}
             tabIndex={0}
             onBlur={closeOptions}
             onKeyDown={handleKeyDown}>
@@ -104,7 +108,7 @@ const Select = (props: SelectProps) => {
             </div>
 
             {isOpen && (
-                <ul className="absolute p-0.25 left-0 w-full mt-1 rounded-1.75 bg-white border border-gray-50 shadow overflow-hidden text-gray-500 space-y-0.25 dark:border-gray-850 dark:bg-gray-800 ">
+                <ul className="z-50 absolute p-0.25 left-0 w-full mt-1 rounded-1.5 bg-white border border-gray-50 shadow overflow-hidden text-gray-500 space-y-0.25 dark:border-gray-850 dark:bg-gray-800 ">
                     {options.map((option, index) => (
                         <li
                             key={option.value}

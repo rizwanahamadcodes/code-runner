@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-    @apply dark:bg-gray-900 font-medium;
+    @apply dark:bg-gray-900 font-medium bg-gray-50;
 }
 
 p {
@@ -13,7 +13,7 @@ p {
 }
 
 .root {
-    @apply min-h-dvh flex flex-col;
+    @apply min-h-dvh flex flex-col h-dvh overflow-hidden;
 }
 
 .primary-focus {
