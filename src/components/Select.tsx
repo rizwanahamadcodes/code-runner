@@ -86,12 +86,12 @@ const Select = (props: SelectProps) => {
     return (
         <div
             ref={selectRef}
-            className="relative border border-gray-50 bg-white dark:border-gray-850 dark:bg-gray-800 shadow h-3 rounded-full focus:outline-none focus:ring-4 focus:ring-primary/50 max-w-max"
+            className="relative border border-gray-50 bg-white dark:border-gray-850 dark:bg-gray-800 shadow h-2.5 rounded-full primary-focus max-w-max"
             tabIndex={0}
             onBlur={closeOptions}
             onKeyDown={handleKeyDown}>
             <div
-                className="text-gray-800 dark:text-gray-100 h-full flex items-center cursor-pointer min-w-10 justify-between ps-1.5 pe-0.875"
+                className="text-gray-800 dark:text-gray-100 h-full flex items-center cursor-pointer min-w-10 justify-between ps-1.25 pe-0.875"
                 onClick={toggleOptions}>
                 {value?.label || "Select an option"}
 
@@ -109,7 +109,7 @@ const Select = (props: SelectProps) => {
                         <li
                             key={option.value}
                             className={clsx(
-                                "h-3 transition-all rounded-full flex items-center px-1.5 cursor-pointer focus:outline-none focus:ring-4 focus:ring-primary/50 hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 dark:hover:text-gray-200",
+                                "h-2.5 transition-all rounded-full flex items-center px-1.25 cursor-pointer primary-focus hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 dark:hover:text-gray-200",
                                 {
                                     "bg-primary-100 dark:bg-primary-800 dark:text-primary-200 text-primary hover:bg-primary-100 hover:text-primary focus:text-primary focus:bg-primary-100 dark:focus:text-primary-200 dark:focus:bg-primary-800 dark:hover:bg-primary-800 dark:hover:text-primary-200":
                                         value?.value === option.value,

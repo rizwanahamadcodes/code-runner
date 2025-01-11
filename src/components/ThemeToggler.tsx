@@ -29,11 +29,23 @@ const ThemeToggler = (props: ThemeTogglerProps) => {
         return null;
     }
 
+    const handleCheckboxKeyDown = (
+        e: React.KeyboardEvent<HTMLLabelElement>
+    ) => {
+        switch (e.code) {
+            case "Space":
+            case "Enter":
+                handleCheckboxChange();
+        }
+    };
+
     return (
         <label
+            tabIndex={0}
+            onKeyDown={handleCheckboxKeyDown}
             htmlFor="theme-toggle-checkbox"
             className={clsx(
-                "relative block w-4 cursor-pointer select-none rounded-full shadow",
+                "primary-focus relative block w-4 cursor-pointer select-none rounded-full shadow",
                 className
             )}
             {...otherProps}>

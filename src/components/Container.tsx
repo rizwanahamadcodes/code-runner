@@ -1,12 +1,18 @@
 import clsx from "clsx";
 
-type ContainerProps = React.ComponentPropsWithoutRef<"div">;
+type ContainerProps = React.ComponentPropsWithoutRef<"div"> & {
+    fluid: boolean;
+};
 
 const Container = (props: ContainerProps) => {
-    const { children, className, ...otherProps } = props;
+    const { children, fluid = false, className, ...otherProps } = props;
     return (
         <div
-            className={clsx("m-auto w-[86%] max-w-7xl", className)}
+            className={clsx(
+                "m-auto",
+                fluid ? "px-0.5" : "w-[86%] max-w-7xl",
+                className
+            )}
             {...otherProps}>
             {children}
         </div>

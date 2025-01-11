@@ -2,7 +2,8 @@ import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 
 const NAV_HEIGHTS = {
-    "nav-height-small": "4rem",
+    "nav-height": "3.5rem",
+    "nav-height-small": "3.5rem",
     "nav-height-large": "5rem",
 };
 
