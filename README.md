@@ -1,4 +1,4 @@
-# Animation Task
+# Code Runner Task
 
 ## Running the App Locally
 
